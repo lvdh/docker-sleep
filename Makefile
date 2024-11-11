@@ -20,12 +20,12 @@ t: tiny.asm
 	@wc -c "$@"
 
 32/b: 32/t 32/
-	$(DOCKER) build -t $^
+	$(DOCKER) buildx build -t $^
 	$(DOCKER) save "$<" > "$@"
 	@wc -c "$@"
 
 b: t .
-	$(DOCKER) build -t $^
+	$(DOCKER) buildx build -t $^
 	$(DOCKER) save "$<" > "$@"
 	@wc -c "$@"
 
